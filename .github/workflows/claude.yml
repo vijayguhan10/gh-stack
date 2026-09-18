@@ -5,3 +5,13 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
+
+jobs:
+  claude:
+    if: contains(github.event.comment.body, '@claude')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
